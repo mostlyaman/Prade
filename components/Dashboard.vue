@@ -47,7 +47,7 @@ const client = useSupabaseClient();
 
 const add_money_dialog = ref(false);
 const add_amount = ref(0);
-const money = ref(null);
+const money = ref(0);
 
 const transanctions = ref([]);
 
