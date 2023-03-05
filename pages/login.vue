@@ -69,8 +69,10 @@ const signUp = async () => {
         email: email.value,
         password: password.value
     });
-    if (error) {
-        alert(error.message);
+    const { data: acc_id, error: error1 } = await client.from('account').insert({ acc_name: 'DEFAULT', user_id: data.user.id }).select('id');
+    const { error: error3 } = await client.from('worth').insert({ value: 0, acc_id: acc_id[0].id })
+    if (error || error1 || error3) {
+        alert(`${error.message}\n${error1.message}\n${error2.message}\n${error3.message}`);
     }
 }
 
